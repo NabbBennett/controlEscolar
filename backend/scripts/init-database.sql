@@ -53,7 +53,3 @@ CREATE TABLE IF NOT EXISTS maestros (
   rol VARCHAR(50) DEFAULT 'maestro',
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
--- Insertar un administrador por defecto (opcional)
-INSERT IGNORE INTO administradores (clave_admin, first_name, last_name, email, password, telefono, rol) 
-VALUES ('ADMIN001', 'Administrador', 'Principal', 'admin@escuela.com', '$2b$12$hashedpassword', '1234567890', 'administrador');

@@ -17,13 +17,12 @@ export const registrarAdministrador = async (req: Request, res: Response) => {
       rol
     } = req.body;
 
-    console.log('📝 Datos recibidos para administrador:', req.body);
+    console.log('Datos recibidos para administrador:', req.body);
 
-    // Validaciones básicas
     if (!clave_admin || !first_name || !last_name || !email || !password) {
       return res.status(400).json({
         success: false,
-        message: 'Faltan campos requeridos'
+        message: 'Faltan campos'
       });
     }
 
@@ -63,7 +62,7 @@ export const registrarAdministrador = async (req: Request, res: Response) => {
       [clave_admin, first_name, last_name, email, hashedPassword, telefono, rfc, edad, ocupacion, rol || 'administrador']
     );
 
-    console.log('✅ Administrador registrado, ID:', result.insertId);
+    console.log('Administrador registrado, ID:', result.insertId);
 
     // Obtener el administrador recién creado (sin password)
     const [nuevoAdmin]: any = await pool.execute(
@@ -78,7 +77,7 @@ export const registrarAdministrador = async (req: Request, res: Response) => {
     });
 
   } catch (error: any) {
-    console.error('💥 Error en registro de administrador:', error);
+    console.error('Error en registro de administrador:', error);
     
     res.status(500).json({
       success: false,

@@ -24,7 +24,6 @@ app.use('/api/administradores', administradorRoutes);
 app.use('/api/alumnos', alumnoRoutes);
 app.use('/api/maestros', maestroRoutes);
 
-// Health check
 app.get('/api/health', (req, res) => {
   res.json({ 
     success: true, 
@@ -33,12 +32,6 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Ruta de prueba
-app.get('/', (req, res) => {
-  res.json({ message: 'Bienvenido al API del sistema de control escolar' });
-});
-
-// Manejo de rutas no encontradas
 app.use('*', (req, res) => {
   res.status(404).json({
     success: false,

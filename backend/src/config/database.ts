@@ -1,10 +1,8 @@
-// src/config/database.ts - VERSIÓN SIMPLIFICADA
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Configuración mínima y funcional
 const poolConfig = {
   host: process.env.DB_HOST || 'localhost',
   port: parseInt(process.env.DB_PORT || '3306'),
@@ -17,7 +15,7 @@ const poolConfig = {
 
 const pool = mysql.createPool(poolConfig);
 
-// Probar conexión
+//test-conexión
 export const testConnection = async () => {
   try {
     const connection = await pool.getConnection();
